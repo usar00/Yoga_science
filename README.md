@@ -1,6 +1,6 @@
 # ヨガサイエンス (Yoga Science)
 
-科学的根拠に基づくヨガの理論解説サイト。理系的アプローチで「なぜ効くのか」を体系的に届ける。
+科学的根拠に基づくヨガの理論解説サイト。解剖学・生理学・神経科学の視点から「なぜ効くのか」を体系的に届ける。
 
 ## サイト構成
 
@@ -16,31 +16,28 @@
 
 ## 技術スタック
 
-- **静的サイトジェネレーター**: [Hugo](https://gohugo.io/)
-- **ホスティング**: GitHub Pages
+- **静的サイトジェネレーター**: [Hugo](https://gohugo.io/) (extended)
+- **テーマ**: [PaperMod](https://github.com/adityatelange/hugo-PaperMod)
+- **ホスティング**: GitHub Pages (`gh-pages` ブランチ)
 - **CI/CD**: GitHub Actions（`main` ブランチへの push で自動デプロイ）
+- **構造化データ**: JSON-LD (Schema.org Article)
 
 ## 記事の追加方法
 
-新しい記事を追加するには、対応するカテゴリのディレクトリに Markdown ファイルを作成します。
-
 ```bash
-# 例: 解剖学カテゴリに新しい記事を追加
-# content/anatomy/new-article-slug.md を作成
+# Hugo CLI で新しい記事を作成（archetype テンプレートが適用される）
+hugo new anatomy/hamstrings-and-forward-fold.md
 
-cat <<'EOF' > content/anatomy/new-article-slug.md
----
-title: "記事タイトル"
-date: 2026-02-26
-description: "記事の概要説明"
-tags: ["タグ1", "タグ2"]
----
+# エディタで編集し、draft: false に変更
 
-記事の本文をここに書く。
-EOF
+# ビルド確認
+hugo server -D
+
+# main ブランチに push → 自動デプロイ
+git add .
+git commit -m "Add new article: hamstrings-and-forward-fold"
+git push origin main
 ```
-
-`main` ブランチに push すると、GitHub Actions が自動的にビルド・デプロイします。
 
 ## ローカルでの開発
 
@@ -48,8 +45,11 @@ EOF
 # Hugo をインストール（macOS の場合）
 brew install hugo
 
+# サブモジュール（PaperMod テーマ）を取得
+git submodule update --init --recursive
+
 # 開発サーバーを起動
 hugo server -D
 
-# http://localhost:1313/ でプレビュー
+# http://localhost:1313/Yoga_science/ でプレビュー
 ```
