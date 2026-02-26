@@ -1,0 +1,57 @@
+baseURL = "https://usar00.github.io/Yoga_science/"
+languageCode = "ja"
+title = "ヨガサイエンス"
+theme = ""
+
+defaultContentLanguage = "ja"
+hasCJKLanguage = true
+
+[params]
+  description = "科学的根拠に基づくヨガの理論解説。理系的アプローチで「なぜ効くのか」を体系的に届ける。"
+  author = "Yoga Science"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+
+[menu]
+  [[menu.main]]
+    name = "ホーム"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "解剖学"
+    url = "/anatomy/"
+    weight = 2
+  [[menu.main]]
+    name = "生理学"
+    url = "/physiology/"
+    weight = 3
+  [[menu.main]]
+    name = "心理学・神経科学"
+    url = "/psychology/"
+    weight = 4
+  [[menu.main]]
+    name = "アーサナ理論"
+    url = "/asana/"
+    weight = 5
+  [[menu.main]]
+    name = "効果・エビデンス"
+    url = "/evidence/"
+    weight = 6
+  [[menu.main]]
+    name = "ヨガ指導の科学"
+    url = "/teaching/"
+    weight = 7
+  [[menu.main]]
+    name = "ヨガ哲学"
+    url = "/philosophy/"
+    weight = 8
